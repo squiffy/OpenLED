@@ -27,7 +27,7 @@ unsigned char calculateCheck(unsigned char packet[]) {
 void applyColor(int red, int green, int blue) {
 
 	/*
-	 * XXX: eventually make the packet a struct.
+	 * XXX: eventually make the packet a struct
 	 */
 
 	unsigned char packet[10];
