@@ -1,8 +1,78 @@
 #include <stdio.h>
 
+union Halfword {
+	struct {
+		unsigned char high:8;
+		unsigned char low:8;
+	} bytes;
+
+	short hword_value;
+};
+
+unsigned char calculateCheck(unsigned char packet[]) {
+
+	union Halfword sum;
+
+	sum.hword_value = 0x0000;
+
+	int i;
+	for(i = 0;i < 10; i++)
+		sum.hword_value += packet[i];
+
+	unsigned char ret = (unsigned char)(sum.bytes.high + sum.bytes.low);
+
+	return ret;
+}
+
 void applyColor(int red, int green, int blue) {
 
-	printf("function stub\n.");
+	/*
+	 * XXX: eventually make the packet a struct.
+	 */
+
+	unsigned char packet[10];
+
+	/*
+	 * set magic bytes
+	 */
+
+	packet[0] = 0xaa;
+	packet[1] = 0x55;
+	packet[2] = 0x00;
+
+	/*
+	 * Set mode byte. 0x01 since we're only changing colors
+	 */
+
+	packet[3] = 0x01;
+
+	/*
+	 * Set keyNumber to 0x05 to change colors.
+	 */
+
+	packet[4] = 0x05;
+
+	/*
+	 * Set keyValue to brightness value. 0x64 for 100% brightness.
+	 */
+
+	packet[5] = 0x64;
+
+	/*
+	 * Now we set the colors! RGB format
+	 */
+
+	packet[6] = (unsigned char)red;
+	packet[7] = (unsigned char)green;
+	packet[8] = (unsigned char)blue;
+
+	/*
+	 * Set the checksum
+	 */
+
+	packet[9] = calculateCheck(packet);
+
+	return;
 
 }
 
