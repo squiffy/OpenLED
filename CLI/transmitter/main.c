@@ -4,8 +4,8 @@
 
 union Halfword {
 	struct {
-		unsigned int high:8;
 		unsigned int low:8;
+		unsigned int high:8;
 	} bytes;
 
 	uint16_t hword_value;
