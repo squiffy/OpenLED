@@ -70,20 +70,13 @@ void transmitPacket(union Packet packet) {
 	}
 
 	/*
-	 * Print the packet out for now. At least I implement aync sockets. However,
-	 * you can just shove this over netcat. Should work.
+	 * Use fwrite to print out raw hex values. Only reason to do this is to be
+	 * able to use this program in conjunction with a bash script to produce
+	 * a data stream.
 	 */
 
-	printf("Packet: ");
+	fwrite(packet.data, 1, sizeof(packet.data), stdout);
 
-	int i;
-	for(i = 0;i < 10; i++) {
-
-		printf("%02x",packet.data[i]);
-
-	}
-
-	printf("\n");
 }
 
 unsigned char calculateCheck(union Packet packet) {
