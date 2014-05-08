@@ -1,13 +1,75 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
 
 union Halfword {
 	struct {
-		unsigned char high:8;
-		unsigned char low:8;
+		unsigned int high:8;
+		unsigned int low:8;
 	} bytes;
 
-	short hword_value;
+	uint16_t hword_value;
 };
+
+union byte {
+	struct {
+		unsigned int low:4;
+		unsigned int high:4;
+	} nibbles;
+
+	uint8_t byte_value;
+};
+
+void transmitPacket(unsigned char packet[]) {
+
+	/*
+	 * Need to scamble the packet first. I hope this works...
+	 */
+
+	int lowCounter = 0;
+	int highCounter = 9;
+
+	union byte lowByte;
+	union byte highByte;
+	union byte tempByte;
+
+	bool done = false;
+	while(!done) {
+
+		lowByte.byte_value = packet[lowCounter];
+		highByte.byte_value = packet[highCounter];
+
+		tempByte.byte_value = lowByte.byte_value;
+		lowByte.nibbles.low = highByte.nibbles.high;
+		highByte.nibbles.high = tempByte.nibbles.low;
+
+		packet[lowCounter] = lowByte.byte_value;
+		packet[highCounter] = highByte.byte_value;
+
+		lowCounter++;
+		highCounter--;
+
+		if(lowCounter == 5)
+			done = true;
+
+	}
+
+	/*
+	 * Print the packet out for now. At least I implement aync sockets. However,
+	 * you can just shove this over netcat. Should work.
+	 */
+
+	printf("Packet: ");
+
+	int i;
+	for(i = 0;i < 10; i++) {
+
+		printf("%x",packet[i]);
+
+	}
+
+	printf("\n");
+}
 
 unsigned char calculateCheck(unsigned char packet[]) {
 
@@ -53,10 +115,10 @@ void applyColor(int red, int green, int blue) {
 	packet[4] = 0x05;
 
 	/*
-	 * Set keyValue to brightness value. 0x64 for 100% brightness.
+	 * Set keyValue to brightness value. 0x32 for 50% brightness.
 	 */
 
-	packet[5] = 0x64;
+	packet[5] = 0x32;
 
 	/*
 	 * Now we set the colors! RGB format
@@ -71,6 +133,8 @@ void applyColor(int red, int green, int blue) {
 	 */
 
 	packet[9] = calculateCheck(packet);
+
+	transmitPacket(packet);
 
 	return;
 
