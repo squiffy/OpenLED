@@ -2,6 +2,21 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+union Packet {
+	struct {
+		uint8_t magic[3];
+		uint8_t mode;
+		uint8_t keyNumber;
+		uint8_t keyValue;
+		uint8_t red;
+		uint8_t green;
+		uint8_t blue;
+		uint8_t checksum;
+	} fields;
+
+	uint8_t data[10];
+};
+
 union Halfword {
 	struct {
 		unsigned int low:8;
@@ -20,7 +35,7 @@ union byte {
 	uint8_t byte_value;
 };
 
-void transmitPacket(unsigned char packet[]) {
+void transmitPacket(union Packet packet) {
 
 	/*
 	 * Need to scamble the packet first. I hope this works...
@@ -36,15 +51,15 @@ void transmitPacket(unsigned char packet[]) {
 	bool done = false;
 	while(!done) {
 
-		lowByte.byte_value = packet[lowCounter];
-		highByte.byte_value = packet[highCounter];
+		lowByte.byte_value = packet.data[lowCounter];
+		highByte.byte_value = packet.data[highCounter];
 
 		tempByte.byte_value = lowByte.byte_value;
 		lowByte.nibbles.low = highByte.nibbles.high;
 		highByte.nibbles.high = tempByte.nibbles.low;
 
-		packet[lowCounter] = lowByte.byte_value;
-		packet[highCounter] = highByte.byte_value;
+		packet.data[lowCounter] = lowByte.byte_value;
+		packet.data[highCounter] = highByte.byte_value;
 
 		lowCounter++;
 		highCounter--;
@@ -64,14 +79,14 @@ void transmitPacket(unsigned char packet[]) {
 	int i;
 	for(i = 0;i < 10; i++) {
 
-		printf("%x",packet[i]);
+		printf("%02x",packet.data[i]);
 
 	}
 
 	printf("\n");
 }
 
-unsigned char calculateCheck(unsigned char packet[]) {
+unsigned char calculateCheck(union Packet packet) {
 
 	union Halfword sum;
 
@@ -79,7 +94,7 @@ unsigned char calculateCheck(unsigned char packet[]) {
 
 	int i;
 	for(i = 0;i < 10; i++)
-		sum.hword_value += packet[i];
+		sum.hword_value += packet.data[i];
 
 	unsigned char ret = (unsigned char)(sum.bytes.high + sum.bytes.low);
 
@@ -92,47 +107,47 @@ void applyColor(int red, int green, int blue) {
 	 * XXX: eventually make the packet a struct
 	 */
 
-	unsigned char packet[10];
+	union Packet packet;
 
 	/*
 	 * set magic bytes
 	 */
 
-	packet[0] = 0xaa;
-	packet[1] = 0x55;
-	packet[2] = 0x00;
+	packet.fields.magic[0] = 0xaa;
+	packet.fields.magic[1] = 0x55;
+	packet.fields.magic[2] = 0x00;
 
 	/*
 	 * Set mode byte. 0x01 since we're only changing colors
 	 */
 
-	packet[3] = 0x01;
+	packet.fields.mode = 0x01;
 
 	/*
 	 * Set keyNumber to 0x05 to change colors.
 	 */
 
-	packet[4] = 0x05;
+	packet.fields.keyNumber = 0x05;
 
 	/*
 	 * Set keyValue to brightness value. 0x32 for 50% brightness.
 	 */
 
-	packet[5] = 0x32;
+	packet.fields.keyValue = 0x32;
 
 	/*
 	 * Now we set the colors! RGB format
 	 */
 
-	packet[6] = (unsigned char)red;
-	packet[7] = (unsigned char)green;
-	packet[8] = (unsigned char)blue;
+	packet.fields.red = (uint8_t)red;
+	packet.fields.green = (uint8_t)green;
+	packet.fields.blue = (uint8_t)blue;
 
 	/*
 	 * Set the checksum
 	 */
 
-	packet[9] = calculateCheck(packet);
+	packet.fields.checksum = calculateCheck(packet);
 
 	transmitPacket(packet);
 
