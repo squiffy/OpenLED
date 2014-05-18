@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18212596192966870061F58B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18212595192966870061F58B /* Foundation.framework */; };
+		182125A4192966870061F58B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182125A3192966870061F58B /* XCTest.framework */; };
+		182125A5192966870061F58B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18212595192966870061F58B /* Foundation.framework */; };
+		182125A7192966870061F58B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182125A6192966870061F58B /* UIKit.framework */; };
+		182125AA192966870061F58B /* liblibLED.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18212592192966870061F58B /* liblibLED.a */; };
+		182125B0192966880061F58B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 182125AE192966880061F58B /* InfoPlist.strings */; };
+		182125B2192966880061F58B /* libLEDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 182125B1192966880061F58B /* libLEDTests.m */; };
+		182125BD192967510061F58B /* LEDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182125BC192967510061F58B /* LEDController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		182125A8192966870061F58B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1821258A192966860061F58B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18212591192966860061F58B;
+			remoteInfo = libLED;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18212590192966860061F58B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18212592192966870061F58B /* liblibLED.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibLED.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		18212595192966870061F58B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18212599192966870061F58B /* libLED-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libLED-Prefix.pch"; sourceTree = "<group>"; };
+		182125A2192966870061F58B /* libLEDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libLEDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		182125A3192966870061F58B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		182125A6192966870061F58B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		182125AD192966880061F58B /* libLEDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libLEDTests-Info.plist"; sourceTree = "<group>"; };
+		182125AF192966880061F58B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		182125B1192966880061F58B /* libLEDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libLEDTests.m; sourceTree = "<group>"; };
+		182125BB192967510061F58B /* LEDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDController.h; sourceTree = "<group>"; };
+		182125BC192967510061F58B /* LEDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1821258F192966860061F58B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18212596192966870061F58B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1821259F192966870061F58B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182125A4192966870061F58B /* XCTest.framework in Frameworks */,
+				182125AA192966870061F58B /* liblibLED.a in Frameworks */,
+				182125A7192966870061F58B /* UIKit.framework in Frameworks */,
+				182125A5192966870061F58B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18212589192966860061F58B = {
+			isa = PBXGroup;
+			children = (
+				18212597192966870061F58B /* libLED */,
+				182125AB192966870061F58B /* libLEDTests */,
+				18212594192966870061F58B /* Frameworks */,
+				18212593192966870061F58B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18212593192966870061F58B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18212592192966870061F58B /* liblibLED.a */,
+				182125A2192966870061F58B /* libLEDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18212594192966870061F58B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18212595192966870061F58B /* Foundation.framework */,
+				182125A3192966870061F58B /* XCTest.framework */,
+				182125A6192966870061F58B /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18212597192966870061F58B /* libLED */ = {
+			isa = PBXGroup;
+			children = (
+				182125BB192967510061F58B /* LEDController.h */,
+				182125BC192967510061F58B /* LEDController.m */,
+				18212598192966870061F58B /* Supporting Files */,
+			);
+			path = libLED;
+			sourceTree = "<group>";
+		};
+		18212598192966870061F58B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18212599192966870061F58B /* libLED-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		182125AB192966870061F58B /* libLEDTests */ = {
+			isa = PBXGroup;
+			children = (
+				182125B1192966880061F58B /* libLEDTests.m */,
+				182125AC192966870061F58B /* Supporting Files */,
+			);
+			path = libLEDTests;
+			sourceTree = "<group>";
+		};
+		182125AC192966870061F58B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				182125AD192966880061F58B /* libLEDTests-Info.plist */,
+				182125AE192966880061F58B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18212591192966860061F58B /* libLED */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 182125B5192966880061F58B /* Build configuration list for PBXNativeTarget "libLED" */;
+			buildPhases = (
+				1821258E192966860061F58B /* Sources */,
+				1821258F192966860061F58B /* Frameworks */,
+				18212590192966860061F58B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libLED;
+			productName = libLED;
+			productReference = 18212592192966870061F58B /* liblibLED.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		182125A1192966870061F58B /* libLEDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 182125B8192966880061F58B /* Build configuration list for PBXNativeTarget "libLEDTests" */;
+			buildPhases = (
+				1821259E192966870061F58B /* Sources */,
+				1821259F192966870061F58B /* Frameworks */,
+				182125A0192966870061F58B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				182125A9192966870061F58B /* PBXTargetDependency */,
+			);
+			name = libLEDTests;
+			productName = libLEDTests;
+			productReference = 182125A2192966870061F58B /* libLEDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1821258A192966860061F58B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = squiffypwn;
+			};
+			buildConfigurationList = 1821258D192966860061F58B /* Build configuration list for PBXProject "libLED" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18212589192966860061F58B;
+			productRefGroup = 18212593192966870061F58B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18212591192966860061F58B /* libLED */,
+				182125A1192966870061F58B /* libLEDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		182125A0192966870061F58B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182125B0192966880061F58B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1821258E192966860061F58B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182125BD192967510061F58B /* LEDController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1821259E192966870061F58B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182125B2192966880061F58B /* libLEDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		182125A9192966870061F58B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18212591192966860061F58B /* libLED */;
+			targetProxy = 182125A8192966870061F58B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		182125AE192966880061F58B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				182125AF192966880061F58B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		182125B3192966880061F58B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		182125B4192966880061F58B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		182125B6192966880061F58B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libLED.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libLED/libLED-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		182125B7192966880061F58B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libLED.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libLED/libLED-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		182125B9192966880061F58B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libLED/libLED-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "libLEDTests/libLEDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		182125BA192966880061F58B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libLED/libLED-Prefix.pch";
+				INFOPLIST_FILE = "libLEDTests/libLEDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1821258D192966860061F58B /* Build configuration list for PBXProject "libLED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182125B3192966880061F58B /* Debug */,
+				182125B4192966880061F58B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		182125B5192966880061F58B /* Build configuration list for PBXNativeTarget "libLED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182125B6192966880061F58B /* Debug */,
+				182125B7192966880061F58B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		182125B8192966880061F58B /* Build configuration list for PBXNativeTarget "libLEDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182125B9192966880061F58B /* Debug */,
+				182125BA192966880061F58B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1821258A192966860061F58B /* Project object */;
+}
